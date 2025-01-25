@@ -176,7 +176,9 @@ controls.enableDamping = true;
 /**
  * html point objects
  */
-
+// raycaster for checking html points
+const raycaster = new THREE.Raycaster();
+// html points
 const htmlPoints = [
     {
         position: new THREE.Vector3(1.55, 0.3, -0.6),
@@ -208,6 +210,19 @@ const tick = () => {
     for (const point of htmlPoints) {
         const screenPoint = point.position.clone();
         screenPoint.project(camera);
+        raycaster.setFromCamera(screenPoint, camera);
+        const intersect = raycaster.intersectObjects(scene.children, true);
+        if (intersect.length === 0) {
+            point.element.classList.add("visible");
+        } else {
+            const intersectionDistance = intersect[0].distance;
+            const pointDistance = point.position.distanceTo(camera.position);
+            if (intersectionDistance < pointDistance) {
+                point.element.classList.remove("visible");
+            } else {
+                point.element.classList.add("visible");
+            }
+        }
         const translateX = screenPoint.x * sizes.width * 0.5;
         const translateY = -screenPoint.y * sizes.height * 0.5;
         point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
