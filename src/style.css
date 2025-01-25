@@ -24,9 +24,24 @@ body {
         align-items: center;
         font-size: 24px;
         font-weight: bold;
+        border: 2px solid yellow;
     }
     .text {
         display: none;
+        position: absolute;
+        background: pink;
+        width: 200px;
+        height: 100px;
+        left: -75px;
+        top: 65px;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+    &:hover {
+        .text {
+            display: flex;
+        }
     }
 }
 
