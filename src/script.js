@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 /**
  * Loaders
  */
+let ready = false;
 const loadingBarElement = document.querySelector(".loading-bar");
 const loadingManager = new THREE.LoadingManager(
     // Loaded
@@ -18,7 +19,7 @@ const loadingManager = new THREE.LoadingManager(
                 value: 0,
                 delay: 1,
             });
-
+            ready = true;
             // Update loadingBarElement
             loadingBarElement.classList.add("ended");
             loadingBarElement.style.transform = "";
@@ -207,25 +208,29 @@ const tick = () => {
     // Update controls
     controls.update();
     // update points
-    for (const point of htmlPoints) {
-        const screenPoint = point.position.clone();
-        screenPoint.project(camera);
-        raycaster.setFromCamera(screenPoint, camera);
-        const intersect = raycaster.intersectObjects(scene.children, true);
-        if (intersect.length === 0) {
-            point.element.classList.add("visible");
-        } else {
-            const intersectionDistance = intersect[0].distance;
-            const pointDistance = point.position.distanceTo(camera.position);
-            if (intersectionDistance < pointDistance) {
-                point.element.classList.remove("visible");
-            } else {
+    if (ready) {
+        for (const point of htmlPoints) {
+            const screenPoint = point.position.clone();
+            screenPoint.project(camera);
+            raycaster.setFromCamera(screenPoint, camera);
+            const intersect = raycaster.intersectObjects(scene.children, true);
+            if (intersect.length === 0) {
                 point.element.classList.add("visible");
+            } else {
+                const intersectionDistance = intersect[0].distance;
+                const pointDistance = point.position.distanceTo(
+                    camera.position
+                );
+                if (intersectionDistance < pointDistance) {
+                    point.element.classList.remove("visible");
+                } else {
+                    point.element.classList.add("visible");
+                }
             }
+            const translateX = screenPoint.x * sizes.width * 0.5;
+            const translateY = -screenPoint.y * sizes.height * 0.5;
+            point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
         }
-        const translateX = screenPoint.x * sizes.width * 0.5;
-        const translateY = -screenPoint.y * sizes.height * 0.5;
-        point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
     }
     // Render
     renderer.render(scene, camera);
