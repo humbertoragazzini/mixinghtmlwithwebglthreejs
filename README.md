@@ -1,6 +1,6 @@
 # Mixing HTML with Webgl MiniProject - Humberto Ragazzini
 
-This is an example of shading, in this project we create a custom vertex/fragment shader to be used in THREEJS, where we manipulate the light and the color to simulate a sea, added tools to tweak the effect: [mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/dist/)
+This is an example of mixing webgl with html with threejs, i have an example with react three fiber too: [mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/dist/)
 
 # **Frameworks and Tecnologies**
 
