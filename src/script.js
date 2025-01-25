@@ -204,7 +204,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const tick = () => {
     // Update controls
     controls.update();
-
+    // update points
+    for (const point of htmlPoints) {
+        const screenPoint = point.position.clone();
+        screenPoint.project(camera);
+    }
     // Render
     renderer.render(scene, camera);
 
