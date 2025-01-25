@@ -208,6 +208,9 @@ const tick = () => {
     for (const point of htmlPoints) {
         const screenPoint = point.position.clone();
         screenPoint.project(camera);
+        const translateX = screenPoint.x * sizes.width * 0.5;
+        const translateY = -screenPoint.y * sizes.height * 0.5;
+        point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
     }
     // Render
     renderer.render(scene, camera);

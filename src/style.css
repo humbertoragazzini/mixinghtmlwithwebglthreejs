@@ -14,7 +14,9 @@ body {
     left: 50%;
     background: red;
     &.visible {
-        transform: scale(1, 1);
+        .label {
+            transform: scale(1, 1);
+        }
     }
     .label {
         width: 50px;
