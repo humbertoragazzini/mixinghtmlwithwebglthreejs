@@ -1,6 +1,6 @@
 # Mixing HTML with Webgl MiniProject - Humberto Ragazzini
 
-This is an example of mixing webgl with html with threejs, i have an example with react three fiber too: [mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/dist/)
+This is an example of mixing webgl with html with threejs, i have an example with react three fiber too: [mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/)
 
 # **Frameworks and Tecnologies**
 
@@ -24,7 +24,7 @@ This is an example of mixing webgl with html with threejs, i have an example wit
 3. In this tab select settings.
 4. Click in pages in the option menu.
 5. Select in source branch master.
-6. Save, the project is deployed in github pages in the following link:[mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/dist/)
+6. Save, the project is deployed in github pages in the following link:[mixing html with webgl](https://humbertoragazzini.github.io/mixinghtmlwithwebglthreejs/)
 
 ## **To clone my repository in github**
 
