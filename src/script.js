@@ -98,12 +98,12 @@ const updateAllMaterials = () => {
  * Environment map
  */
 const environmentMap = cubeTextureLoader.load([
-    "/textures/environmentMaps/0/px.jpg",
-    "/textures/environmentMaps/0/nx.jpg",
-    "/textures/environmentMaps/0/py.jpg",
-    "/textures/environmentMaps/0/ny.jpg",
-    "/textures/environmentMaps/0/pz.jpg",
-    "/textures/environmentMaps/0/nz.jpg",
+    "textures/environmentMaps/0/px.jpg",
+    "textures/environmentMaps/0/nx.jpg",
+    "textures/environmentMaps/0/py.jpg",
+    "textures/environmentMaps/0/ny.jpg",
+    "textures/environmentMaps/0/pz.jpg",
+    "textures/environmentMaps/0/nz.jpg",
 ]);
 
 environmentMap.colorSpace = THREE.SRGBColorSpace;
@@ -116,7 +116,7 @@ debugObject.envMapIntensity = 2.5;
 /**
  * Models
  */
-gltfLoader.load("/models/DamagedHelmet/glTF/DamagedHelmet.gltf", (gltf) => {
+gltfLoader.load("models/DamagedHelmet/glTF/DamagedHelmet.gltf", (gltf) => {
     gltf.scene.scale.set(2.5, 2.5, 2.5);
     gltf.scene.rotation.y = Math.PI * 0.5;
     scene.add(gltf.scene);
